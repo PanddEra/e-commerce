@@ -1,6 +1,6 @@
 import {baseApi} from '../../../services/baseApi';
 
-export const productsApi = baseApi.injectEndpoints({
+const productsApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
 
         getProducts: builder.query({
@@ -37,3 +37,5 @@ export const productsApi = baseApi.injectEndpoints({
 
     }),
 });
+
+export const {useGetProductsQuery, useGetProductByIdQuery} = productsApi;

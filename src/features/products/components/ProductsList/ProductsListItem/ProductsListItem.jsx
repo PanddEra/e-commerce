@@ -4,8 +4,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import {Rating} from "@mui/material";
+import PropTypes from "prop-types";
 
-export default function MultiActionAreaCard({product}) {
+const ProductsListItem = ({product}) => {
     return (
         <Card id={product.id} sx={{ maxWidth: 345 }}>
             <CardActionArea>
@@ -34,3 +35,16 @@ export default function MultiActionAreaCard({product}) {
         </Card>
     );
 }
+ProductsListItem.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        discountPercentage: PropTypes.number.isRequired,
+        rating: PropTypes.number.isRequired,
+        thumbnail: PropTypes.string.isRequired
+        }
+    )
+};
+
+export default ProductsListItem;
