@@ -45,3 +45,4 @@ export const baseApi = createApi({
 
     }),
 });
+export const { useGetProductsQuery, useGetProductByIdQuery } = baseApi;

@@ -1,8 +1,8 @@
 import {createRoot} from 'react-dom/client'
-import {store} from "@app/Store/store.js";
-import {routerConfig} from "@app/Router/index.js";
+import {store} from "@app/Store";
+import {routerConfig} from "@app/Router/index.jsx";
 import {RouterProvider} from "react-router";
-import MainLayout from "@layouts/MainLayout/index.js";
+import MainLayout from "@layouts/MainLayout";
 import {Provider} from "react-redux";
 
 

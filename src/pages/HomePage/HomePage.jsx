@@ -1,5 +1,5 @@
-import ProductsList from "../../features/products/components/ProductsList";
-import { useGetProductsQuery } from '../../features/products/api/productsApi';
+import ProductsList from "@features/products/components/ProductsList";
+import {useGetProductsQuery} from "@app/API/baseApi.js";
 import {Skeleton, Snackbar} from "@mui/material";
 
 const HomePage = () => {
@@ -23,7 +23,7 @@ const HomePage = () => {
     return (
         <>
             <div>
-                <ProductsList products={data}/>
+                <ProductsList products={data.products}/>
             </div>
         </>
      )
