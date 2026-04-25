@@ -1,6 +1,15 @@
-import {baseApi} from '../../../services/baseApi';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {API_BASE_URL} from "@constants/API.js";
 
-const productsApi = baseApi.injectEndpoints({
+export const baseApi = createApi({
+    reducerPath: 'api',
+
+    baseQuery: fetchBaseQuery({
+        baseUrl: API_BASE_URL,
+    }),
+
+    tagTypes: ['Products', 'Cart', 'Auth'],
+
     endpoints: (builder) => ({
 
         getProducts: builder.query({
@@ -31,11 +40,8 @@ const productsApi = baseApi.injectEndpoints({
         }),
 
         getProductById: builder.query({
-            query: (id) => `/products/${id}`,
-            providesTags: (result, error, id) => [{type: 'Products', id},],
+            query: (id) => `/products/${id}`, providesTags: (result, error, id) => [{type: 'Products', id},],
         }),
 
     }),
 });
-
-export const {useGetProductsQuery, useGetProductByIdQuery} = productsApi;

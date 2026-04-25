@@ -6,7 +6,11 @@ const HomePage = () => {
     const { data, isLoading, error } = useGetProductsQuery({})
 
     if (isLoading) return (
-        <Skeleton variant="rounded" width={200} height={200}></Skeleton>
+        <>
+            <Skeleton variant="rounded" width={200} height={200}></Skeleton>
+            <Skeleton variant="rounded" width={200} height={200}></Skeleton>
+            <Skeleton variant="rounded" width={200} height={200}></Skeleton>
+        </>
     )
     if (error) return (
         <Snackbar
