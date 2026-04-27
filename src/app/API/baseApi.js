@@ -8,10 +8,18 @@ export const baseApi = createApi({
         baseUrl: API_BASE_URL,
     }),
 
-    tagTypes: ['Products', 'Cart', 'Auth'],
+    tagTypes: ['Products', 'Cart', 'Auth', 'Banner'],
 
     endpoints: (builder) => ({
 
+        getImage: builder.query({
+            query: ({width, height}) => {
+                return `/image/${width}x${height}`;
+            },
+            providesTags: ['Banner'],
+        }),
+
+        
         getProducts: builder.query({
             query: ({limit, skip, search, category, sortBy, order = 'desc'}) => {
                 let url = '/products';
@@ -45,4 +53,4 @@ export const baseApi = createApi({
 
     }),
 });
-export const { useGetProductsQuery, useGetProductByIdQuery } = baseApi;
+export const { useGetImageQuery, useGetProductsQuery, useGetProductByIdQuery } = baseApi;
