@@ -22,7 +22,7 @@ export const baseApi = createApi({
 
         
         getProducts: builder.query({
-            query: ({limit, skip, search, category, sortBy, order = 'desc'}) => {
+            query: ({limit, skip, search, category, sortBy, order = 'desc', select}) => {
                 let url = '/products';
 
                 if (search) {
@@ -41,6 +41,7 @@ export const baseApi = createApi({
                 if (skip) params.append('skip', skip);
                 if (sortBy) params.append('sortBy', sortBy);
                 if (order) params.append('order', order);
+                if (select) params.append('select', select);
 
                 const queryString = params.toString();
 
