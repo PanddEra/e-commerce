@@ -13,9 +13,10 @@ export const baseApi = createApi({
     endpoints: (builder) => ({
 
         getImage: builder.query({
-            query: ({width, height}) => {
-                return `/image/${width}x${height}`;
-            },
+            query: ({width, height}) => ({
+                url: `/image/${width}x${height}`,
+                responseHandler: (response) => response.blob(),
+            }),
             providesTags: ['Banner'],
         }),
 

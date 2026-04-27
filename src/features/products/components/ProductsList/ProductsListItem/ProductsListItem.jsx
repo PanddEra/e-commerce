@@ -3,7 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-import {Rating} from "@mui/material";
+import {Chip, Rating} from "@mui/material";
 import PropTypes from "prop-types";
 
 const ProductsListItem = ({product}) => {
@@ -40,7 +40,10 @@ const ProductsListItem = ({product}) => {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {product.discountPercentage > 0.4 ?
-                            <span> <s>${product.price.toFixed(2)}</s> ${((product.price * (1 - product.discountPercentage / 100)).toFixed(2))}</span>
+                            <span>
+                                <s>${product.price.toFixed(2)}</s>
+                                ${((product.price * (1 - product.discountPercentage / 100)).toFixed(2))}
+                                <Chip color='error' sx={{ml: 1, height:'28px', width: '65px', fontSize: '12px'}} variant='outlined' label={"-" + product.discountPercentage.toFixed(0) + "%"}/></span>
                             : <span>${product.price}</span>
                         }
                     </Typography>
