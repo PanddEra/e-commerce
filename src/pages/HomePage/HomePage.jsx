@@ -19,7 +19,7 @@ const HomePage = () => {
                 <Button variant="outlined" sx={{margin: "50px 0 50px 0"}}>View All</Button>
             </div>
             <SecondaryBanner />
-            <ReviewsBlock title="OUR HAPPY USERS" hook={useGetProductsQuery} hookParams={{sortBy: "rating", limit: 6, skip: 0, select: "reviews"}} />
+            <ReviewsBlock title="OUR HAPPY CUSTOMERS" />
         </div>
     )
 }

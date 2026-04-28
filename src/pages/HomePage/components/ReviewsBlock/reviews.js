@@ -34,5 +34,23 @@ export const reviews = [
         rating: 5,
         reviewerName: "Hank F.",
         comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illum in magnam odit perspiciatis tempore totam voluptatibus? Molestiae omnis, quis!",
+    },
+    {
+        id: 7,
+        rating: 5,
+        reviewerName: "Julia G.",
+        comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illum in magnam odit perspiciatis tempore totam voluptatibus? Molestiae omnis, quis!",
+    },
+    {
+        id: 8,
+        rating: 5,
+        reviewerName: "Monika T.",
+        comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illum in magnam odit perspiciatis tempore totam voluptatibus? Molestiae omnis, quis!",
+    },
+    {
+        id: 9,
+        rating: 5,
+        reviewerName: "Ronnie C.",
+        comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illum in magnam odit perspiciatis tempore totam voluptatibus? Molestiae omnis, quis!",
     }
 ]

@@ -1,75 +1,59 @@
-import {Container, Rating, Skeleton, Snackbar} from "@mui/material";
-import PropTypes from "prop-types";
-import Card from "@mui/material/Card";
-import reviews from "./reviews.js"
+import React from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import {Autoplay, Navigation} from 'swiper/modules';
 
-const ReviewsBlock = ({title, hook, hookParams}) => {
-    const reviews =
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+import { Box, Card, Typography, Rating } from "@mui/material";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { reviews } from "./reviews.js";
+
+const ReviewsBlock = ({ title }) => {
     return (
-        <div>
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                fontFamily: 'Integral',
-                fontWeight: 700,
-                fontStyle: 'bold',
-                fontSize: "48px"
-            }}>{title}</div>
+        <Box sx={{ p: 5, width: "100%"}}>
+            <Typography sx={{ fontSize: 28, fontWeight: 800, mb: 4 }}>
+                {title}
+            </Typography>
 
-            {isLoading ? (
-                <>
-                    <Skeleton variant="rounded" width={400} height={250}></Skeleton>
-                    <Skeleton variant="rounded" width={400} height={250}></Skeleton>
-                    <Skeleton variant="rounded" width={400} height={250}></Skeleton>
-                    <Skeleton variant="rounded" width={400} height={250}></Skeleton>
-                </>
-            ) : (
-                <Container sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                    gap: 2,
-                    flexWrap: "wrap"
-                }}>
-                    {reviews.map((review) => (
-                            <Card key={review.id}
-                                  style={{
-                                      width: "400px",
-                                      height: "250px",
-                                  }}
-                            >
-                                <Rating name="read-only" value={review.rating} precision={1} readOnly/>
-                                {review?.reviewerName || "Anonymous"}
-                                {review?.comment || "No comment"}
-                            </Card>
-                        ))
-                    }
-                </Container>
-            )
+            <Swiper
+                modules={[Navigation, Autoplay]}
+                navigation
+                loop
+                spaceBetween={20}
+                slidesPerView={3}
+                autoplay={{ delay: 3000 }}
+                style={{
+                    "--swiper-navigation-color": "rgb(0 0 0 / 0.28)"
+                }}
+            >
+                {reviews.map((review) => (
+                    <SwiperSlide key={review.id}>
+                        <Card sx={{
+                            p: 3,
+                            borderRadius: 4,
+                            border: '1px solid #eee',
+                            boxShadow: 'none',
+                            height: '100%'
+                        }}>
+                            <Rating value={review.rating} readOnly sx={{fontSize: 30}}/>
 
-            }
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2, mb: 2 }}>
+                                <Typography sx={{ fontWeight: 700, fontSize: 20 }}>
+                                    {review.reviewerName}
+                                </Typography>
+                                <CheckCircleIcon sx={{ color: '#01AB31', fontSize: 20 }} />
+                            </Box>
 
-            {error && (
-                <Snackbar
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    open={true}
-                    message="Error fetching reviews. Please try again later."
-                    autoHideDuration={6000}
-                >
-                </Snackbar>
-            )}
-        </div>
-    )
-}
-PropTypes.ReviewsBlock = {
-    title: PropTypes.string.isRequired,
-    hook: PropTypes.func.isRequired,
-    hookParams: PropTypes.object
-}
+                            <Typography sx={{ color: '#00000099', fontSize: 16, fontWeight: 400 }}>
+                                {review.comment}
+                            </Typography>
+                        </Card>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </Box>
+    );
+};
 
 export default ReviewsBlock;
