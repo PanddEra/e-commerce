@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import {Box} from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const NewsletterForm = () => {
     const { register, handleSubmit } = useForm();
@@ -13,6 +14,12 @@ const NewsletterForm = () => {
                 backgroundColor: "black",
             }}
         >
+            <Typography sx={{
+                fontSize: 40,
+                fontWeight: 700,
+            }}>
+                STAY UPTO DATE ABOUT OUR LATEST OFFERS
+            </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     type="email"
