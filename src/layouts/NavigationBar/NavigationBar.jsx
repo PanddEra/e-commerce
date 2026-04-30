@@ -10,10 +10,10 @@ const NavigationBar = () => {
             position="static"
             elevation={0}
             sx={{
-                backgroundColor: "#fff", color: "#000", borderBottom: "1px solid #eee", px: 4,
+                backgroundColor: "#fff", color: "#000", borderBottom: "1px solid #eee", height: 100
             }}
         >
-            <Toolbar sx={{display: "flex", justifyContent: "space-between"}}>
+            <Toolbar sx={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", height: "100%", "@media (min-width:600px)": {px: 0}}}>
                 <Box sx={{display: "flex", alignItems: "center", gap: 3}}>
                     <Typography variant="h5" sx={{fontWeight: 800}}>SHOP.CO</Typography>
                     <Box sx={{display: "flex", gap: 2, alignItems: "center"}}>

@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 const MainLayout = ({ children }) => {
     return (
-        <>
+        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "1240px", margin: "0 auto", padding: "0 20px"}}>
             <NavigationBar />
             <>
                 {children}
             </>
-        </>
+        </div>
     );
 };
 

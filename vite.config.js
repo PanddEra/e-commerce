@@ -16,6 +16,7 @@ export default defineConfig({
       '@shared': path.resolve(__dirname, root, 'shared'),
       '@app': path.resolve(__dirname, root, 'app'),
       '@constants': path.resolve(__dirname, root, 'constants'),
+      'assets': path.resolve(__dirname, root, 'assets'),
     },
   }
 })
