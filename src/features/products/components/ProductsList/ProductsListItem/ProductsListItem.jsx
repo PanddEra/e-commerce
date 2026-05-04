@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 const ProductsListItem = ({product}) => {
     return (
-        <Card id={product.id.toString()} sx={{width: 295, height: 400}}>
+        <Card id={product.id.toString()} sx={{width: 295, height: 400, display: "flex", justifyContent: "space-between", gap: 5}}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -38,11 +38,18 @@ const ProductsListItem = ({product}) => {
                     }}>
                         <Rating name="read-only" value={product.rating} precision={0.1} readOnly/> {product.rating}/5
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" sx={{
+                        fontFamily: 'Satoshi',
+                        fontWeight: 700,
+                        fontStyle: 'bold',
+                        fontSize: '24px',
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}>
                         {product.discountPercentage > 0.4 ?
                             <span>
-                                <s>${product.price.toFixed(2)}</s>
                                 ${((product.price * (1 - product.discountPercentage / 100)).toFixed(2))}
+                                <s style={{color: "#00000066"}}>${product.price.toFixed(2)}</s>
                                 <Chip color='error' sx={{ml: 1, height:'28px', width: '65px', fontSize: '12px'}} variant='outlined' label={"-" + product.discountPercentage.toFixed(0) + "%"}/></span>
                             : <span>${product.price}</span>
                         }

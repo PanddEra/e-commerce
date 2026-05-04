@@ -8,39 +8,55 @@ const NewsletterForm = () => {
     return (
         <Box
             sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "36px 64px",
                 width: 1240,
                 height: 180,
-                borderRadius: 20,
+                borderRadius: "20px",
                 backgroundColor: "black",
             }}
         >
             <Typography sx={{
+                fontStyle: "bold",
                 fontSize: 40,
                 fontWeight: 700,
+                width: "550px",
+                color: "white",
+                alignItems: "center"
             }}>
                 STAY UPTO DATE ABOUT OUR LATEST OFFERS
             </Typography>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "349px",
+                gap: 14,
+            }} onSubmit={handleSubmit(onSubmit)}>
                 <input
                     type="email"
                     placeholder="Enter your email address"
                     {...register("email", { required: true })}
                     style={{
-                        width: 349,
+                        width: "100%",
                         height: 48,
-                        borderRadius: 4,
-                        padding: "0 10px",
-                        marginRight: 10,
+                        borderRadius: 64,
+                        padding: "12px 16px",
+                        border: "none"
                     }}
                 />
                 <button
                     type="submit"
                     style={{
-                        width: 349,
+                        width: "100%",
                         height: 48,
-                        borderRadius: 4,
+                        borderRadius: 64,
                         border: "none",
                         cursor: "pointer",
+                        padding: "12px 16px",
                     }}
                 >
                     Subscribe

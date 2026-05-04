@@ -6,9 +6,9 @@ import GithubIcon from "@mui/icons-material/GitHub";
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 
 const Footer = () => {
-    return (<footer style={{width: "100%"}}>
+    return (<footer style={{width: "100%", backgroundColor: "#F0F0F0"}}>
         <NewsletterForm/>
-        <Container sx={{display: "flex", justifyContent: "space-between", minWidth: "100%", alignItems: "center", gap: 10}}>
+        <Container sx={{display: "flex", justifyContent: "space-between", minWidth: "100%", alignItems: "center", gap: 10, mt: 5, mb: 5}}>
             <div style={{maxWidth: "250px", display: "flex", flexDirection: "column", gap: "35px"}}>
                 <Typography sx={{fontWeight: 800, fontFamily: "IntegralCF, sans-serif", fontSize: 32}}>SHOP.CO</Typography>
                 <Typography sx={{color: "text.secondary", fontFamily: "Satoshi, sans-serif", fontSize: 14, fontWeight: 400}}>
@@ -63,7 +63,10 @@ const Footer = () => {
         </Container>
         <Divider/>
             <Container sx={{display: "flex", justifyContent: "space-between", width: "100%", alignItems: "center", margin: "20px 0 50px 0"}}>
-            <Typography variant="body2" color="text.secondary" align="center">
+            <Typography variant="body2" sx={{
+                color: "#00000099",
+                textAlign: "center"
+            }}>
                 Shop.co &copy; 2000-2023. All rights reserved
             </Typography>
             <ul style={{display: "flex", gap: "12px", listStyle: "none"}}>
