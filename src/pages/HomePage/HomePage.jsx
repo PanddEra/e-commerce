@@ -21,7 +21,6 @@ const HomePage = () => {
             </div>
             <SecondaryBanner />
             <ReviewsBlock title="OUR HAPPY CUSTOMERS" />
-            <Footer/>
         </div>
     )
 }

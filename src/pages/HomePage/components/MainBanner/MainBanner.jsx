@@ -1,36 +1,54 @@
-import {useGetImageQuery} from "@app/API/baseApi.js";
-import {Skeleton, Snackbar} from "@mui/material";
+import {Button, Container, Divider} from "@mui/material";
+import Typography from "@mui/material/Typography";
+
 
 const MainBanner = () => {
-    const {data, isLoading, error} = useGetImageQuery({width: document.documentElement.clientWidth, height: document.documentElement.clientHeight * 0.7});
+    return (
+        <Container sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(242, 240, 241, 1)"
+        }}>
+            <Container>
+                <Container>
+                    <Typography>
+                        FIND THINGS THAT MATCHES YOUR STYLE
+                    </Typography>
+                    <Typography>
+                        Browse through our diverse range of meticulously crafted garments, designed to bring out your
+                        individuality and cater to your sense of style.
+                    </Typography>
+                    <Button>
+                        Shop Now
+                    </Button>
+                    <div>
+                        <div>
+                            <Typography>200+</Typography>
+                            <Typography>International Brands</Typography>
+                        </div>
+                        <Divider orientation="vertical"/>
+                        <div>
+                            <Typography>2,000+</Typography>
+                            <Typography>High-Quality Products</Typography>
+                        </div>
+                        <Divider orientation="vertical"/>
+                        <div>
+                            <Typography>30,000+</Typography>
+                            <Typography>Happy Customers</Typography>
+                        </div>
+                    </div>
+                </Container>
+                <Container>
+                    
+                </Container>
+            </Container>
+            <Container>
 
-    if (isLoading) {
-        return (
-            <Skeleton variant="rounded" width={document.documentElement.clientWidth} height={document.documentElement.clientHeight * 0.7}></Skeleton>
-        )
-    }
-    if (error) {
-        return (
-            <>
-                <Skeleton variant="rounded" width={document.documentElement.clientWidth} height={document.documentElement.clientHeight * 0.7}></Skeleton>
-                <Snackbar
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    open={true}
-                    message="Error fetching banner. Please try again later."
-                    autoHideDuration={1000}
-                >
-                </Snackbar>
-            </>
-        )
-    }
-    if (data) {
-        return (
-            <img alt="banner" src={URL.createObjectURL(data)} />
-        )
-    }
+            </Container>
+        </Container>
+    )
 }
 
 export default MainBanner;

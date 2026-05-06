@@ -1,5 +1,6 @@
 import NavigationBar from "@layouts/NavigationBar";
 import PropTypes from "prop-types";
+import Footer from "@layouts/Footer/index.js";
 
 const MainLayout = ({ children }) => {
     return (
@@ -8,6 +9,7 @@ const MainLayout = ({ children }) => {
             <>
                 {children}
             </>
+            <Footer/>
         </div>
     );
 };
