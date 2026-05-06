@@ -16,7 +16,7 @@ const HomePage = () => {
                 <Divider sx={{width:'100%'}}/>
             </div>
             <div style={{marginTop: "50px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-                <ProductsBlock title="TOP SELLING" hook={useGetProductsQuery} hookParams={{sortBy: "rating", limit: 4, skip: 0}} />
+                <ProductsBlock title="TOP RATED" hook={useGetProductsQuery} hookParams={{sortBy: "rating", limit: 4, skip: 0}} />
                 <Button variant="outlined" sx={{margin: "50px 0 50px 0"}}>View All</Button>
             </div>
             <SecondaryBanner />
