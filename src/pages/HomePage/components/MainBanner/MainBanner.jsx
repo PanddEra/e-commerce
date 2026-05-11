@@ -1,50 +1,53 @@
 import {Button, Container, Divider} from "@mui/material";
 import Typography from "@mui/material/Typography";
-
+import {useTheme} from "@mui/material";
+import MainBannerGroup from '@assets/MainBannerGroup.png';
 
 const MainBanner = () => {
+    const theme = useTheme();
     return (
         <Container sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(242, 240, 241, 1)"
+            width: document.documentElement.clientWidth,
         }}>
-            <Container>
+            <Container sx={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                 <Container>
-                    <Typography sx={{fontSize: "264px", fontWeight: "700", fontFamily: "IntegralCF, sans-serif"}}>
+                    <Typography variant="h1" sx={{fontFamily: "IntegralCF"}}>
                         FIND THINGS THAT CURATE YOUR LIFESTYLE
                     </Typography>
-                    <Typography sx={{fontSize: "16px", fontWeight: "400", fontFamily: "Satoshi, sans-serif"}}>
+                    <Typography variant="body2">
                         Browse through our diverse range of meticulously crafted products, designed to bring out your
                         individuality and cater to your sense of style.
                     </Typography>
-                    <Button sx={{width: 210, height: 52, backgroundColor: "black", color: "white", borderRadius: "62px"}}>
+                    <Button variant="button" sx={{width: 210, height: 52, backgroundColor: "black", color: "white", borderRadius: "62px"}}>
                         Shop Now
                     </Button>
-                    <div>
+                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                         <div>
-                            <Typography>200+</Typography>
-                            <Typography>International Brands</Typography>
+                            <Typography variant="h3" sx={{fontSize: "40px"}}>200+</Typography>
+                            <Typography variant="body2">International Brands</Typography>
                         </div>
-                        <Divider orientation="vertical"/>
+                        <Divider variant="divider" orientation="vertical"/>
                         <div>
-                            <Typography>2,000+</Typography>
-                            <Typography>High-Quality Products</Typography>
+                            <Typography variant="h3" sx={{fontSize: "40px"}}>2,000+</Typography>
+                            <Typography variant="body2">High-Quality Products</Typography>
                         </div>
-                        <Divider orientation="vertical"/>
+                        <Divider variant="divider" orientation="vertical"/>
                         <div>
-                            <Typography>30,000+</Typography>
-                            <Typography>Happy Customers</Typography>
+                            <Typography variant="h3" sx={{fontSize: "40px"}}>30,000+</Typography>
+                            <Typography variant="body2">Happy Customers</Typography>
                         </div>
                     </div>
                 </Container>
                 <Container>
+                    <img src={MainBannerGroup} alt="Main Banner"/>
                 </Container>
             </Container>
-            <Container>
-                <img src="@assets/MainBannerGroup.png" alt="Main Banner"/>
+            <Container sx={{width: document.documentElement.clientWidth, backgroundColor: theme.palette.primary.main , height: 122, color: theme.palette.primary.contrastText, display: 'flex', justifyContent: 'space-between', gap: 10}}>
+                <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>BEAUTY</Typography>
+                <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>ELECTRONICS</Typography>
+                <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>CLOTHES</Typography>
+                <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>ACCESSORIES</Typography>
+                <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>VEHICLES</Typography>
             </Container>
         </Container>
     )
