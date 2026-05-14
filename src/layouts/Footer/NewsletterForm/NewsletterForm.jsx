@@ -12,7 +12,7 @@ const NewsletterForm = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 padding: "36px 64px",
-                width: 1240,
+                width: "100%",
                 height: 180,
                 borderRadius: "20px",
                 backgroundColor: "black",
@@ -26,7 +26,7 @@ const NewsletterForm = () => {
                 color: "white",
                 alignItems: "center"
             }}>
-                STAY UPTO DATE ABOUT OUR LATEST OFFERS
+                STAY UP TO DATE ABOUT OUR LATEST OFFERS
             </Typography>
             <form style={{
                 display: "flex",

@@ -4,7 +4,7 @@ import Footer from "@layouts/Footer/index.js";
 
 const MainLayout = ({ children }) => {
     return (
-        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "1240px", margin: "0 auto", padding: "0 20px"}}>
+        <div id="WTF" style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "1240px", margin: "0 auto", padding: "0"}}>
             <NavigationBar />
             <>
                 {children}

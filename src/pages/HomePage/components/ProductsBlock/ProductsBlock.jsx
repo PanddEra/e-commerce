@@ -6,7 +6,7 @@ const ProductsBlock = ({title, hook, hookParams}) => {
     const {data, isLoading, error} = hook(hookParams);
     return (
         <div>
-            <div style={{display: "flex", justifyContent: "center",     fontFamily: 'Integral', fontWeight: 700, fontStyle: 'bold', fontSize: "48px"}}>{title}</div>
+            <div style={{display: "flex", justifyContent: "center",  fontFamily: 'Integral', fontWeight: 700, fontStyle: 'bold', fontSize: "48px", marginBottom: "50px"}}>{title}</div>
 
             {isLoading ? (
                 <>

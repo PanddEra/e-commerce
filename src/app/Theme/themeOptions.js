@@ -59,6 +59,8 @@ export const themeOptions = {
             letterSpacing: 0,
             lineHeight: 1,
             verticalAlign: 'middle',
+            textAlign: "center",
+            textTransform: 'uppercase'
         },
 
         h4: {

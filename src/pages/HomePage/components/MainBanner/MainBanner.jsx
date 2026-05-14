@@ -6,11 +6,9 @@ import MainBannerGroup from '@assets/MainBannerGroup.png';
 const MainBanner = () => {
     const theme = useTheme();
     return (
-        <Container sx={{
-            width: document.documentElement.clientWidth,
-        }}>
-            <Container sx={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                <Container>
+        <div style={{width: "100%", height: 663, margin: 0, padding: 0, display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <div style={{width: "100%", height: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: theme.palette.secondary.main}}>
+                <Container sx={{display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 3, margin: "auto"}}>
                     <Typography variant="h1" sx={{fontFamily: "IntegralCF"}}>
                         FIND THINGS THAT CURATE YOUR LIFESTYLE
                     </Typography>
@@ -26,12 +24,12 @@ const MainBanner = () => {
                             <Typography variant="h3" sx={{fontSize: "40px"}}>200+</Typography>
                             <Typography variant="body2">International Brands</Typography>
                         </div>
-                        <Divider variant="divider" orientation="vertical"/>
+                        <Divider variant="divider" orientation="vertical" flexItem />
                         <div>
                             <Typography variant="h3" sx={{fontSize: "40px"}}>2,000+</Typography>
                             <Typography variant="body2">High-Quality Products</Typography>
                         </div>
-                        <Divider variant="divider" orientation="vertical"/>
+                        <Divider variant="divider" orientation="vertical" flexItem />
                         <div>
                             <Typography variant="h3" sx={{fontSize: "40px"}}>30,000+</Typography>
                             <Typography variant="body2">Happy Customers</Typography>
@@ -41,15 +39,15 @@ const MainBanner = () => {
                 <Container>
                     <img src={MainBannerGroup} alt="Main Banner"/>
                 </Container>
-            </Container>
-            <Container sx={{width: document.documentElement.clientWidth, backgroundColor: theme.palette.primary.main , height: 122, color: theme.palette.primary.contrastText, display: 'flex', justifyContent: 'space-between', gap: 10}}>
+            </div>
+            <div style={{width: "100%", backgroundColor: theme.palette.primary.main , height: 122, color: theme.palette.primary.contrastText, display: 'flex', justifyContent: 'space-around', alignItems: 'center', gap: 10}}>
                 <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>BEAUTY</Typography>
                 <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>ELECTRONICS</Typography>
                 <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>CLOTHES</Typography>
                 <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>ACCESSORIES</Typography>
                 <Typography variant="h3" sx={{fontSize: "33px", fontFamily: "IntegralCF", textAlign: "center"}}>VEHICLES</Typography>
-            </Container>
-        </Container>
+            </div>
+        </div>
     )
 }
 

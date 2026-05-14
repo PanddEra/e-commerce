@@ -8,7 +8,7 @@ export const baseApi = createApi({
         baseUrl: API_BASE_URL,
     }),
 
-    tagTypes: ['Products', 'Cart', 'Auth', 'Banner'],
+    tagTypes: ['Products', 'Cart', 'Auth', 'Banner', 'Categories'],
 
     endpoints: (builder) => ({
 
@@ -53,6 +53,10 @@ export const baseApi = createApi({
             query: (id) => `/products/${id}`, providesTags: (result, error, id) => [{type: 'Products', id},],
         }),
 
+        getCategoryList: builder.query({
+            query: () => 'https://dummyjson.com/products/category-list', providesTags: ['Categories'],
+        })
+
     }),
 });
-export const { useGetImageQuery, useGetProductsQuery, useGetProductByIdQuery } = baseApi;
+export const { useGetImageQuery, useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery } = baseApi;

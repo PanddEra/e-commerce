@@ -11,7 +11,7 @@ import { reviews } from "./reviews.js";
 
 const ReviewsBlock = ({ title }) => {
     return (
-        <Box sx={{ p: 5, width: "100%"}}>
+        <Box sx={{ p: 0, width: "100%", mb: "50px"}}>
             <Typography sx={{ fontSize: 28, fontWeight: 800, mb: 4 }}>
                 {title}
             </Typography>
@@ -24,17 +24,19 @@ const ReviewsBlock = ({ title }) => {
                 slidesPerView={3}
                 autoplay={{ delay: 3000 }}
                 style={{
-                    "--swiper-navigation-color": "rgb(0 0 0 / 0.28)"
+                    "--swiper-navigation-color": "rgb(0 0 0 / 0.28)",
+                    width: "100%"
                 }}
             >
                 {reviews.map((review) => (
                     <SwiperSlide key={review.id}>
                         <Card sx={{
                             p: 3,
-                            borderRadius: 4,
+                            borderRadius: "20px",
                             border: '1px solid #eee',
                             boxShadow: 'none',
-                            height: '100%'
+                            height: '100%',
+                            background: "none",
                         }}>
                             <Rating value={review.rating} readOnly sx={{fontSize: 30}}/>
 

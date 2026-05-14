@@ -5,19 +5,21 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import {Chip, Rating} from "@mui/material";
 import PropTypes from "prop-types";
+import {theme} from "@app/Theme";
+
 
 const ProductsListItem = ({product}) => {
     return (
-        <Card id={product.id.toString()} sx={{width: 295, height: 400, display: "flex", justifyContent: "space-between", gap: 5}}>
+        <Card id={product.id.toString()} sx={{width: 295, height: 410, display: "flex", justifyContent: "space-between", gap: 5, backgroundColor: theme.palette.background.default, border: "none", boxShadow: "none"}}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="298px"
                     width="295px"
                     image={product.thumbnail}
                     alt={product.title}
+                    sx={{backgroundColor: theme.palette.background.paper, borderRadius: "20px"}}
                 />
-                <CardContent>
+                <CardContent sx={{m: "10px 0", p: 0}}>
                     <Typography gutterBottom variant="h5" component="div" sx={{
                         fontFamily: 'Satoshi',
                         fontWeight: 700,
@@ -34,7 +36,8 @@ const ProductsListItem = ({product}) => {
                         height: '19px',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: 1
+                        gap: 1,
+                        mb: "10px"
                     }}>
                         <Rating name="read-only" value={product.rating} precision={0.1} readOnly/> {product.rating}/5
                     </Typography>
