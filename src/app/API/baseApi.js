@@ -59,4 +59,4 @@ export const baseApi = createApi({
 
     }),
 });
-export const { useGetImageQuery, useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery } = baseApi;
+export const { useGetImageQuery,useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery } = baseApi;
