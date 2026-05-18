@@ -6,11 +6,13 @@ import CardActionArea from '@mui/material/CardActionArea';
 import {Chip, Rating} from "@mui/material";
 import PropTypes from "prop-types";
 import {theme} from "@app/Theme";
+import {useNavigate} from "react-router";
 
 
 const ProductsListItem = ({product}) => {
+    const navigate = useNavigate();
     return (
-        <Card id={product.id.toString()} sx={{width: 295, height: 410, display: "flex", justifyContent: "space-between", gap: 5, backgroundColor: theme.palette.background.default, border: "none", boxShadow: "none"}}>
+        <Card onClick={() => navigate(`/product/${product.id}`)} id={product.id.toString()} sx={{width: 295, height: 410, display: "flex", justifyContent: "space-between", gap: 5, backgroundColor: theme.palette.background.default, border: "none", boxShadow: "none"}}>
             <CardActionArea>
                 <CardMedia
                     component="img"
