@@ -1,27 +1,71 @@
+import {
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableRow
+} from "@mui/material";
+
 const DescriptionTab = ({product})  => {
     return (
-        <div style={{display: "flex", flexDirection: "column", gap: "20px"}}>
-            <div>
-                <h3>Description</h3>
-                <p>{product.description}</p>
-            </div>
-            <div>
-                <h3>Stock</h3>
-                <p>{product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}</p>
-            </div>
-            <div>
-                <h3>Tags</h3>
-                <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap'}}>
-                    {product.tags.map((tag) => {
-                        return <span style={{
-                            padding: "5px 10px",
-                            backgroundColor: "#f0f0f0",
-                            borderRadius: "5px",
-                            fontSize: "12px"
-                        }}>{tag}</span>;
-                    })}
-                </div>
-            </div>
+        <div style={{ margin: "50px 0"}}>
+            <TableContainer component={Paper}>
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>
+                                Title
+                            </TableCell>
+                            <TableCell>{product.title}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                Stock
+                            </TableCell>
+                            <TableCell>{product.stock} items</TableCell>
+                        </TableRow>
+                        {product?.brand && (
+                            <TableRow>
+                                <TableCell>
+                                    Brand
+                                </TableCell>
+                                <TableCell>{product.brand}</TableCell>
+                            </TableRow>
+                        )}
+                        <TableRow>
+                            <TableCell>
+                                Warranty
+                            </TableCell>
+                            <TableCell>{product.warrantyInformation}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                Shipping
+                            </TableCell>
+                            <TableCell>{product.shippingInformation}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                Return
+                            </TableCell>
+                            <TableCell>{product.returnPolicy}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell>
+                            Weight
+                        </TableCell>
+                        <TableCell>{product.weight} kg</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            Dimensions
+                        </TableCell>
+                        <TableCell>{product.dimensions.width} x {product.dimensions.height} x {product.dimensions.depth}</TableCell>
+                    </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
 }

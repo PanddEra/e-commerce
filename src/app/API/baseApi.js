@@ -11,28 +11,16 @@ export const baseApi = createApi({
     tagTypes: ['Products', 'Cart', 'Auth', 'Banner', 'Categories'],
 
     endpoints: (builder) => ({
-
-        getImage: builder.query({
-            query: ({width, height}) => ({
-                url: `/image/${width}x${height}`,
-                responseHandler: (response) => response.blob(),
-            }),
-            providesTags: ['Banner'],
-        }),
-
-        
         getProducts: builder.query({
             query: ({limit, skip, search, category, sortBy, order = 'desc', select}) => {
                 let url = '/products';
 
                 if (search) {
                     url += `/search?q=${search}`;
-                    return url;
                 }
 
                 if (category) {
                     url += `/category/${category}`;
-                    return url;
                 }
 
                 const params = new URLSearchParams();
@@ -59,4 +47,4 @@ export const baseApi = createApi({
 
     }),
 });
-export const { useGetImageQuery,useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery } = baseApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery } = baseApi;

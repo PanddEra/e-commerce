@@ -111,7 +111,26 @@ export const themeOptions = {
 
     spacing: 8,
 
-    // overrides: {
+     components: {
+        MuiAccordion: {
+            styleOverrides: {
+                root:{
+                    padding: "20px",
+                }
+            }
+        },
+         MuiTableCell: {
+            defaultProps: {
+                align: "center"
+            },
+            styleOverrides: {
+                root: {
+                    borderRightStyle: "solid",
+                    borderRightWidth: "1px",
+                    borderRightColor: "rgba(0,0,0,0.08)",
+                }
+            }
+         }
     //     MuiButton: {
     //         root: {
     //             borderRadius: 999,
@@ -187,5 +206,5 @@ export const themeOptions = {
     //             paddingRight: 24,
     //         },
     //     },
-    // },
+    },
 };

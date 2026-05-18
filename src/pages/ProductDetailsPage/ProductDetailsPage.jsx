@@ -1,7 +1,8 @@
-import {useGetProductByIdQuery} from "@app/API/baseApi.js";
+import {useGetProductByIdQuery, useGetProductsQuery} from "@app/API/baseApi.js";
 import ProductCard from "@features/products/components/ProductCard";
 import {useParams} from "react-router";
 import ProductDetailsTabs from "@pages/ProductDetailsPage/components/Tabs";
+import ProductsBlock from "@pages/HomePage/components/ProductsBlock/index.js";
 
 
 const ProductDetailsPage = () => {
@@ -19,9 +20,10 @@ const ProductDetailsPage = () => {
     }
     if (data) {
         return (
-            <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "1240px", margin: "0 auto"}}>
+            <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "1240px", margin: "0 auto 50px auto"}}>
                 <ProductCard product={data}></ProductCard>
                 <ProductDetailsTabs product={data}></ProductDetailsTabs>
+                <ProductsBlock title="YOU MIGHT ALSO LIKE" hook={useGetProductsQuery} hookParams={{category: data.category, sortBy: "rating", order: "desc", limit: 4, skip: 0}} />
             </div>
         )
     }
