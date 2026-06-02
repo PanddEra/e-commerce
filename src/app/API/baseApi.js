@@ -43,8 +43,16 @@ export const baseApi = createApi({
 
         getCategoryList: builder.query({
             query: () => 'https://dummyjson.com/products/category-list', providesTags: ['Categories'],
+        }),
+        loginUser: builder.mutation({
+            query: (credentials) => ({
+                url: '/auth/login',
+                method: 'POST',
+                body: credentials,
+                credentials: 'include',
+            }),
+            providesTags: ['Auth'],
         })
-
     }),
 });
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery } = baseApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useGetCategoryListQuery, useLoginUserMutation } = baseApi;

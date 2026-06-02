@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ProductsList = ({products}) => {
     return (
-        <Grid container sx={{width:'100%', gap: "20px"}}>
+        <Grid container sx={{width:'100%', gap: "15px"}}>
             {products.map(product => (
                     <Grid sx={{xs: 12, sm: 6, md: 4, lg: 3}} item key={product.id}>
                         <ProductsListItem product={product} />

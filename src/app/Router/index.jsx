@@ -2,6 +2,7 @@ import {createBrowserRouter} from "react-router";
 import HomePage from "@pages/HomePage";
 import ProductDetailsPage from "@pages/ProductDetailsPage";
 import CategoryPage from "@pages/CategoryPage/index.js";
+import LoginPage from "@pages/LoginPage/index.js";
 
 export const routerConfig = createBrowserRouter([
     {
@@ -15,5 +16,8 @@ export const routerConfig = createBrowserRouter([
     {
         path: "/category",
         element: <CategoryPage />,
+    }, {
+        path: "/login",
+        element: <LoginPage/>,
     }
 ]);
