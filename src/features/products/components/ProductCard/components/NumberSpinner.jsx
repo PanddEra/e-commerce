@@ -15,11 +15,13 @@ export default function NumberSpinner({
 
     const handleDec = () => {
         const next = Math.max(min, valueState - step);
+        this.props.value = next;
         setValueState(next);
     };
 
     const handleInc = () => {
         const next = Math.min(max, valueState + step);
+        this.props.value = next;
         setValueState(next);
     };
 

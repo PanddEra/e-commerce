@@ -7,6 +7,20 @@ import NumberSpinner from "@features/products/components/ProductCard/components/
 import {theme} from "@app/Theme";
 
 function ProductCard({product}) {
+    const handleAddToCart = () => {
+        alert("Added to cart");
+        const quantity = document.querySelector('[data-number-spinner-add-to-cart]')?.value;
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProduct = cart.find(item => item.id === product.id);
+        if (existingProduct) {
+            existingProduct.quantity += quantity;
+            cart.replace(cart.findIndex(item => item.id === product.id), existingProduct);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        } else {
+            cart.push({...product, quantity: quantity});
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    }
     return (
         <Card sx={{
             backgroundColor: theme.palette.background.default,
@@ -91,9 +105,9 @@ function ProductCard({product}) {
                     height: "52px",
                     padding: 0
                 }}>
-                    <NumberSpinner min={product.minimumOrderQuantity} max={product.stock}
+                    <NumberSpinner data-number-spinner-add-to-cart min={product.minimumOrderQuantity} max={product.stock}
                                    value={product.minimumOrderQuantity} step={1}/>
-                    <Button disabled={product.stock === 0} variant="button"
+                    <Button onClick={() => handleAddToCart()} disabled={product.stock === 0} variant="button"
                             sx={{backgroundColor: 'primary.main', color: 'white', width: '100%', height: "100%"}}>Add to
                         cart</Button>
                 </CardActions>
