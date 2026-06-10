@@ -2,10 +2,8 @@ import Typography from "@mui/material/Typography";
 import {Image} from "@mui/icons-material";
 import NumberSpinner from "@features/products/components/ProductCard/components/NumberSpinner.jsx";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import {useGetProductByIdQuery} from "@app/API/baseApi.js";
 
-const CartProductsListItem = ({ id }) => {
-    const {data: product, isLoading, error} = useGetProductByIdQuery(id);
+const CartProductsListItem = ({ product }) => {
     return (
         <div>
             <Image src={product.thumbnail} alt={product.title} width={124} height={124} />

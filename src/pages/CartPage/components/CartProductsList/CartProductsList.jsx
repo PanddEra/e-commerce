@@ -2,12 +2,12 @@ import Card from "@mui/material/Card";
 import CartProductsListItem from "@pages/CartPage/components/CartProductsListItem";
 import {Divider} from "@mui/material";
 
-const CartProductsList = ({ idList }) => {
+const CartProductsList = ({ products }) => {
     return (
         <Card sx={{width: 715, display: "flex", flexDirection: "column", gap: "24px", padding: "20px 24px 20px 24px"}}>
-            {idList.map(id => (
+            {products.map(product => (
                 <>
-                    <CartProductsListItem key={id} id={id} />
+                    <CartProductsListItem key={product.id} product={product} />
                     <Divider/>
                 </>
             ))}

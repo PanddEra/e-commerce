@@ -13,11 +13,11 @@ function ProductCard({product}) {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingProduct = cart.find(item => item.id === product.id);
         if (existingProduct) {
-            existingProduct.quantity += quantity;
+            existingProduct.quantity += 1;
             cart.replace(cart.findIndex(item => item.id === product.id), existingProduct);
             localStorage.setItem('cart', JSON.stringify(cart));
         } else {
-            cart.push({...product, quantity: quantity});
+            cart.push({...product, quantity: 1});
             localStorage.setItem('cart', JSON.stringify(cart));
         }
     }
