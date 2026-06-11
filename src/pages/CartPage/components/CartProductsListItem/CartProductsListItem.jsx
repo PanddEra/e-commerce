@@ -3,7 +3,8 @@ import {Image} from "@mui/icons-material";
 import NumberSpinner from "@features/products/components/ProductCard/components/NumberSpinner.jsx";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-const CartProductsListItem = ({ product }) => {
+const CartProductsListItem = ({ product, handleQuantityChange}) => {
+    const handleChange = handleQuantityChange.bind(null, product);
     return (
         <div>
             <Image src={product.thumbnail} alt={product.title} width={124} height={124} />
@@ -19,6 +20,7 @@ const CartProductsListItem = ({ product }) => {
                     value={product.quantity}
                     min={product.minimumOrderQuantity}
                     max={product.stock}
+                    onChange={handleChange}
                 />
             </div>
         </div>

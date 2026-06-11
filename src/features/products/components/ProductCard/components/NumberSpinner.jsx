@@ -9,20 +9,20 @@ export default function NumberSpinner({
                                           min = 0,
                                           max = 999,
                                           step = 1,
+                                            onChange,
                                       }) {
     const [valueState, setValueState] = useState(value);
 
-
     const handleDec = () => {
         const next = Math.max(min, valueState - step);
-        this.props.value = next;
         setValueState(next);
+        onChange(next);
     };
 
     const handleInc = () => {
         const next = Math.min(max, valueState + step);
-        this.props.value = next;
         setValueState(next);
+        onChange(next);
     };
 
     return (

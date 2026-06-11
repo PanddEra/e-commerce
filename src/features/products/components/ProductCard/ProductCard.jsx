@@ -5,21 +5,25 @@ import Typography from "@mui/material/Typography";
 import {Button, CardActions, Chip, Divider, Rating} from "@mui/material";
 import NumberSpinner from "@features/products/components/ProductCard/components/NumberSpinner.jsx";
 import {theme} from "@app/Theme";
+import {useState} from "react";
 
 function ProductCard({product}) {
+    const [quantity, setQuantity] = useState(0);
     const handleAddToCart = () => {
         alert("Added to cart");
-        const quantity = document.querySelector('[data-number-spinner-add-to-cart]')?.value;
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingProduct = cart.find(item => item.id === product.id);
         if (existingProduct) {
-            existingProduct.quantity += 1;
+            existingProduct.quantity += quantity;
             cart.replace(cart.findIndex(item => item.id === product.id), existingProduct);
             localStorage.setItem('cart', JSON.stringify(cart));
         } else {
-            cart.push({...product, quantity: 1});
+            cart.push({...product, quantity: quantity});
             localStorage.setItem('cart', JSON.stringify(cart));
         }
+    }
+    const handleSpinnerChange = (value) => {
+        setQuantity(value);
     }
     return (
         <Card sx={{
@@ -106,7 +110,7 @@ function ProductCard({product}) {
                     padding: 0
                 }}>
                     <NumberSpinner data-number-spinner-add-to-cart min={product.minimumOrderQuantity} max={product.stock}
-                                   value={product.minimumOrderQuantity} step={1}/>
+                                   value={product.minimumOrderQuantity} step={1} onChange={handleSpinnerChange}/>
                     <Button onClick={() => handleAddToCart()} disabled={product.stock === 0} variant="button"
                             sx={{backgroundColor: 'primary.main', color: 'white', width: '100%', height: "100%"}}>Add to
                         cart</Button>

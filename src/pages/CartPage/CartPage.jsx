@@ -11,9 +11,14 @@ const CartPage = () => {
         console.log(products);
         console.log(products.reduce((acc, product) => acc + (product.price * product.quantity), 0));
     }, []);
+    const handleChange = (quantity, product) => {
+        setProducts(prev => {
+            prev.
+        })
+    }
     return (
         <div style={{display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "24px", width: "1240px", margin: "0 auto"}}>
-            <CartProductsList products={products}/>
+            <CartProductsList products={products} handleQuantityChange={handleChange}/>
             <Card>
                 <CardHeader title="Order Summary"/>
                 <CardContent>
