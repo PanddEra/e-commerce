@@ -5,21 +5,16 @@ import Typography from "@mui/material/Typography";
 import {Button, CardActions, Chip, Divider, Rating} from "@mui/material";
 import NumberSpinner from "@features/products/components/ProductCard/components/NumberSpinner.jsx";
 import {theme} from "@app/Theme";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '@features/cart/cartSlice.js';
 
 function ProductCard({product}) {
+    const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState(product.minimumOrderQuantity || 1);
+
     const handleAddToCart = () => {
-        alert("Added to cart");
-        const quantity = document.querySelector('[data-number-spinner-add-to-cart]')?.value;
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingProduct = cart.find(item => item.id === product.id);
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-            cart.replace(cart.findIndex(item => item.id === product.id), existingProduct);
-            localStorage.setItem('cart', JSON.stringify(cart));
-        } else {
-            cart.push({...product, quantity: 1});
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+        dispatch(addItem({ product, quantity }));
     }
     return (
         <Card sx={{
@@ -105,8 +100,8 @@ function ProductCard({product}) {
                     height: "52px",
                     padding: 0
                 }}>
-                    <NumberSpinner data-number-spinner-add-to-cart min={product.minimumOrderQuantity} max={product.stock}
-                                   value={product.minimumOrderQuantity} step={1}/>
+                    <NumberSpinner onChange={setQuantity} min={product.minimumOrderQuantity} max={product.stock}
+                                   value={product.minimumOrderQuantity || 1} step={1}/>
                     <Button onClick={() => handleAddToCart()} disabled={product.stock === 0} variant="button"
                             sx={{backgroundColor: 'primary.main', color: 'white', width: '100%', height: "100%"}}>Add to
                         cart</Button>
